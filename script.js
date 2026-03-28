@@ -243,7 +243,7 @@ function renderProducts(products = PRODUCTS) {
     <div class="product-card" data-id="${product.id}">
       <div class="product-image">
         ${product.image.startsWith('http') ? `
-          <img src="${product.image}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;" />
+          <img src="${product.image}" alt="${product.name}" loading="lazy" style="width:100%; height:100%; object-fit: cover;" />
         ` : `<div style="font-size: 5rem;">${product.image}</div>`}
         ${product.isNew ? '<div class="product-badge">New</div>' : ''}
       </div>

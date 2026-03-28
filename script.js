@@ -597,6 +597,27 @@ style.textContent = `
   @keyframes slideIn {
     from {
       transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+
 // Backend API Integration
 const API_BASE_URL = 'http://localhost:5000/api';
 
@@ -678,24 +699,3 @@ async function fetchProductsFromBackend() {
     return PRODUCTS; // Fall back to local products
   }
 }
-
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);

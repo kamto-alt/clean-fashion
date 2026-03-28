@@ -243,7 +243,7 @@ function renderProducts(products = PRODUCTS) {
     <div class="product-card" data-id="${product.id}">
       <div class="product-image">
         ${product.image.startsWith('http') ? `
-          <img src="${product.image}" alt="${product.name}" loading="lazy" style="width:100%; height:100%; object-fit: cover;" />
+          <img src="${product.image}" alt="${product.name}" loading="lazy" style="width:100%; height:100%; object-fit: cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x600?text=Image+Unavailable';" />
         ` : `<div style="font-size: 5rem;">${product.image}</div>`}
         ${product.isNew ? '<div class="product-badge">New</div>' : ''}
       </div>
@@ -274,6 +274,46 @@ function renderProducts(products = PRODUCTS) {
       e.target.style.opacity = e.target.style.opacity !== '1' ? '1' : '0.3';
     });
   });
+}
+
+// Product details page loader
+function loadProductDetails() {
+  const productId = parseInt(new URLSearchParams(window.location.search).get('id'));
+  const product = PRODUCTS.find((p) => p.id === productId) || PRODUCTS[0];
+  if (!product) return;
+
+  const mainImageContainer = document.getElementById('product-main-image');
+  const thumbImage = document.getElementById('product-thumb');
+
+  if (mainImageContainer) {
+    mainImageContainer.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x600?text=Image+Unavailable';" />
+    `;
+  }
+
+  if (thumbImage) {
+    thumbImage.innerHTML = `
+      <img src="${product.image}" alt="${product.name} thumbnail" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/120x100?text=Image+Unavailable';" />
+    `;
+    thumbImage.addEventListener('click', () => {
+      if (mainImageContainer) {
+        mainImageContainer.querySelector('img').src = product.image;
+      }
+    });
+  }
+
+  const mapText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  };
+
+  mapText('breadcrumb-product', product.name);
+  mapText('product-category', product.category);
+  mapText('product-name', product.name);
+  mapText('product-rating', `⭐ ${product.rating}`);
+  mapText('product-reviews', product.reviews);
+  mapText('product-price', `$${product.price.toFixed(2)}`);
+  mapText('product-description', product.description);
 }
 
 // Filter and sort products
@@ -498,6 +538,11 @@ function initializePageFunctions() {
   // Account page
   if (path.includes('account')) {
     setupAccountPage();
+  }
+
+  // Product page
+  if (path.includes('product')) {
+    loadProductDetails();
   }
 }
 

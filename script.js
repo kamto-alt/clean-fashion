@@ -9,7 +9,7 @@ const PRODUCTS = [
     name: 'Classic White T-Shirt',
     category: 'Men',
     price: 45.00,
-    image: 'https://picsum.photos/400/400?random=1',
+    image: '694c0b20725e1777145041e08a0063ab.jpg',
     rating: 4.5,
     reviews: 128,
     isNew: true,
@@ -20,7 +20,7 @@ const PRODUCTS = [
     name: 'Black Skinny Jeans',
     category: 'Men',
     price: 89.99,
-    image: 'https://picsum.photos/400/400?random=2',
+    image: '729a09f3c448056788548e35f528973d.jpg',
     rating: 4.8,
     reviews: 256,
     isNew: false,
@@ -31,7 +31,7 @@ const PRODUCTS = [
     name: 'Summer Floral Dress',
     category: 'Women',
     price: 75.00,
-    image: 'https://picsum.photos/400/400?random=3',
+    image: 'New Ditsy Floral Shoulder Tie Cinched Waist Fit & Flare Casual Elegant Summer Holiday Dress, Slim & Flattering.jfif',
     rating: 4.7,
     reviews: 342,
     isNew: true,
@@ -42,7 +42,7 @@ const PRODUCTS = [
     name: 'Leather Brown Belt',
     category: 'Accessories',
     price: 35.00,
-    image: 'https://picsum.photos/400/400?random=4',
+    image: '84ffbc38c86f265e9fd516a573ef9131.jpg',
     rating: 4.6,
     reviews: 89,
     isNew: false,
@@ -53,7 +53,7 @@ const PRODUCTS = [
     name: 'Women\'s Blazer',
     category: 'Women',
     price: 129.99,
-    image: 'https://picsum.photos/400/400?random=5',
+    image: 'e94a2518bf02ec0069c1a94fc1e3f0a0.jpg',
     rating: 4.9,
     reviews: 167,
     isNew: true,
@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: 'Athletic Shorts',
     category: 'Men',
     price: 55.00,
-    image: 'https://picsum.photos/400/400?random=6',
+    image: '7728bf506cc8229be2017eb798ac8fa2.jpg',
     rating: 4.4,
     reviews: 95,
     isNew: false,
@@ -75,7 +75,7 @@ const PRODUCTS = [
     name: 'Designer Sunglasses',
     category: 'Accessories',
     price: 150.00,
-    image: 'https://picsum.photos/400/400?random=7',
+    image: 'chrome piece eye ware accessory ⚜️.jfif',
     rating: 4.8,
     reviews: 203,
     isNew: true,
@@ -86,7 +86,7 @@ const PRODUCTS = [
     name: 'White Sneakers',
     category: 'Accessories',
     price: 99.99,
-    image: 'https://picsum.photos/400/400?random=8',
+    image: 'Nike Air Force 1 is Waiting For You___.jfif',
     rating: 4.7,
     reviews: 318,
     isNew: false,
@@ -242,9 +242,7 @@ function renderProducts(products = PRODUCTS) {
   grid.innerHTML = products.map(product => `
     <div class="product-card" data-id="${product.id}">
       <div class="product-image">
-        ${product.image.startsWith('http') ? `
-          <img src="${product.image}" alt="${product.name}" loading="eager" style="width:100%; height:100%; object-fit: cover; display:block;" />
-        ` : `<div style="font-size: 5rem;">${product.image}</div>`}
+        <img src="${product.image}" alt="${product.name}" loading="eager" style="width:100%; height:100%; object-fit: cover; display:block;" />
         ${product.isNew ? '<div class="product-badge">New</div>' : ''}
       </div>
       <div class="product-info">

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <a href="cart.html" class="icon-btn" title="Cart" style="text-decoration: none;">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Checkout Steps -->
+      <div class="checkout-steps">
+        <div class="step active">
+          <div class="step-number">1</div>
+          <div class="step-label">Auth</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-label">Shipping</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-label">Payment</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-label">Review</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <!-- Checkout Form -->
+        <div>
+          <!-- Step 1: Authentication -->
+          <div class="step-content step-content-1">
+            <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 4px; margin-bottom: 2rem;">
+              <h2 style="margin-bottom: 1.5rem;">Login or Continue as Guest</h2>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                <button class="btn btn-dark" style="padding: 1rem;" onclick="switchAuthMode('login')">Login</button>
+                <button class="btn btn-dark" style="padding: 1rem; background-color: transparent; color: var(--primary-color);" onclick="switchAuthMode('guest')">Guest Checkout</button>
+              </div>
+
+              <form class="step-form-1" id="auth-form">
+                <div id="login-form">
+                  <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Password *</label>
+                    <input type="password" required>
+                  </div>
+                  <p style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 1rem;">Don't have an account? <a href="#" style="color: var(--accent-color);">Create one</a></p>
+                </div>
+
+                <div id="guest-form" class="hidden">
+                  <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required>
+                  </div>
+                </div>
+
+                <button type="button" class="btn next-step-btn" style="width: 100%;">Continue to Shipping</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Step 2: Shipping -->
+          <div class="step-content step-content-2 hidden">
+            <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 4px; margin-bottom: 2rem;">
+              <h2 style="margin-bottom: 1.5rem;">Shipping Information</h2>
+              
+              <form class="step-form-2">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>First Name *</label>
+                    <input type="text" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name *</label>
+                    <input type="text" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Street Address *</label>
+                  <input type="text" required>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>City *</label>
+                    <input type="text" required>
+                  </div>
+                  <div class="form-group">
+                    <label>State/Province *</label>
+                    <input type="text" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>ZIP/Postal Code *</label>
+                    <input type="text" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Country *</label>
+                    <select required>
+                      <option>United States</option>
+                      <option>Canada</option>
+                      <option>Mexico</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input type="tel" required>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Shipping Method</h3>
+                <label style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; border: 2px solid var(--accent-color); border-radius: 4px; cursor: pointer;">
+                  <input type="radio" name="shipping" value="standard" checked style="margin-right: 1rem;">
+                  <div style="flex: 1;">
+                    <strong>Standard Shipping (3-5 business days)</strong>
+                    <p style="color: var(--light-text); font-size: 0.9rem;">Free on orders over $100</p>
+                  </div>
+                  <span style="font-weight: bold;">$10.00</span>
+                </label>
+
+                <label style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; border: 2px solid var(--border-color); border-radius: 4px; cursor: pointer;">
+                  <input type="radio" name="shipping" value="express" style="margin-right: 1rem;">
+                  <div style="flex: 1;">
+                    <strong>Express Shipping (1-2 business days)</strong>
+                    <p style="color: var(--light-text); font-size: 0.9rem;">Track your order in real-time</p>
+                  </div>
+                  <span style="font-weight: bold;">$25.00</span>
+                </label>
+
+                <button type="button" class="btn next-step-btn" style="width: 100%; margin-top: 1rem;">Continue to Payment</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment -->
+          <div class="step-content step-content-3 hidden">
+            <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 4px; margin-bottom: 2rem;">
+              <h2 style="margin-bottom: 1.5rem;">Payment Method</h2>
+              
+              <form class="step-form-3">
+                <div style="margin-bottom: 1.5rem;">
+                  <label style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; border: 2px solid var(--accent-color); border-radius: 4px; cursor: pointer;">
+                    <input type="radio" name="payment" value="card" checked style="margin-right: 1rem;">
+                    <strong>Credit/Debit Card</strong>
+                  </label>
+
+                  <label style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; border: 2px solid var(--border-color); border-radius: 4px; cursor: pointer;">
+                    <input type="radio" name="payment" value="bank" style="margin-right: 1rem;">
+                    <strong>Bank Transfer</strong>
+                  </label>
+
+                  <label style="display: flex; align-items: center; padding: 1rem; border: 2px solid var(--border-color); border-radius: 4px; cursor: pointer;">
+                    <input type="radio" name="payment" value="mobile" style="margin-right: 1rem;">
+                    <strong>Mobile Payment (Apple Pay / Google Pay)</strong>
+                  </label>
+                </div>
+
+                <div id="card-form">
+                  <div class="form-group">
+                    <label>Cardholder Name *</label>
+                    <input type="text" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Card Number *</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" required>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Expiry Date *</label>
+                      <input type="text" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                      <label>CVV *</label>
+                      <input type="text" placeholder="123" required>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" class="btn next-step-btn" style="width: 100%; margin-top: 1rem;">Review Order</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Step 4: Review -->
+          <div class="step-content step-content-4 hidden">
+            <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 4px; margin-bottom: 2rem;">
+              <h2 style="margin-bottom: 1.5rem;">Order Review</h2>
+              
+              <div style="background: white; padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">Shipping Address</h3>
+                <p id="review-address" style="color: var(--light-text);">123 Main Street, New York, NY 10001, USA</p>
+              </div>
+
+              <div style="background: white; padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">Shipping Method</h3>
+                <p id="review-shipping" style="color: var(--light-text);">Standard Shipping (3-5 business days)</p>
+              </div>
+
+              <div style="background: white; padding: 1.5rem; border-radius: 4px;">
+                <h3 style="margin-bottom: 1rem;">Payment Method</h3>
+                <p id="review-payment" style="color: var(--light-text);">Credit Card ending in 1234</p>
+              </div>
+
+              <button class="btn" style="width: 100%; padding: 1rem; margin-top: 2rem; font-size: 1.1rem;" onclick="completeOrder()">
+                Place Order
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div>
+          <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 4px; position: sticky; top: 100px;">
+            <h3 style="margin-bottom: 1.5rem;">Order Summary</h3>
+            
+            <div id="checkout-items" style="max-height: 250px; overflow-y: auto; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+              <!-- Items will be rendered here -->
+            </div>
+
+            <div class="summary-row">
+              <span>Subtotal:</span>
+              <span id="checkout-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping:</span>
+              <span id="checkout-shipping">$0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total:</span>
+              <span id="checkout-total">$0.00</span>
+            </div>
+
+            <div style="background: white; padding: 1rem; border-radius: 4px; margin-top: 1.5rem; text-align: center; border: 1px solid var(--border-color);">
+              <p style="color: var(--success-color); font-weight: 600;">✓ Secure Payment</p>
+              <p style="color: var(--light-text); font-size: 0.85rem; margin-top: 0.5rem;">SSL encrypted connection</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Render checkout items
+    function renderCheckoutItems() {
+      const itemsContainer = document.getElementById('checkout-items');
+      if (cart.items.length === 0) {
+        window.location.href = 'cart.html';
+        return;
+      }
+
+      itemsContainer.innerHTML = cart.items.map(item => `
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <div style="font-weight: 600;">${item.name}</div>
+            <div style="color: var(--light-text); font-size: 0.9rem;">Qty: ${item.quantity}</div>
+          </div>
+          <div style="font-weight: 600; text-align: right;">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+      `).join('');
+
+      updateCheckoutSummary();
+    }
+
+    function updateCheckoutSummary() {
+      const subtotal = cart.getTotal();
+      const shipping = 10; // Default shipping
+      const total = subtotal + shipping;
+
+      document.getElementById('checkout-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('checkout-shipping').textContent = `$${shipping.toFixed(2)}`;
+      document.getElementById('checkout-total').textContent = `$${total.toFixed(2)}`;
+    }
+
+    function switchAuthMode(mode) {
+      const loginForm = document.getElementById('login-form');
+      const guestForm = document.getElementById('guest-form');
+
+      if (mode === 'login') {
+        loginForm.classList.remove('hidden');
+        guestForm.classList.add('hidden');
+      } else {
+        loginForm.classList.add('hidden');
+        guestForm.classList.remove('hidden');
+      }
+    }
+
+    function completeOrder() {
+      if (validateForm('.step-form-3')) {
+        const orderId = 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        localStorage.setItem('lastOrder', JSON.stringify({
+          id: orderId,
+          date: new Date().toLocaleDateString(),
+          total: cart.getTotal() + 10,
+          status: 'Confirmed'
+        }));
+
+        cart.clear();
+        window.location.href = 'confirmation.html?orderId=' + orderId;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCheckoutItems();
+      setupCheckoutFlows();
+    });
+  </script>
+</body>
+</html>

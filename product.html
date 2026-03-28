@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <a href="cart.html" class="icon-btn" title="Cart" style="text-decoration: none;">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div style="background-color: var(--secondary-color); padding: 1rem 2rem;">
+    <div class="container">
+      <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="breadcrumb-product">Product</span>
+    </div>
+  </div>
+
+  <!-- Product Detail -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        <!-- Product Images -->
+        <div>
+          <div class="product-image" style="width: 100%; height: 500px; margin-bottom: 1rem; font-size: 8rem;">
+            <span id="product-main-image">👕</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+            <div class="product-image" style="height: 100px; font-size: 2rem; cursor: pointer; border: 2px solid var(--accent-color);">
+              <span id="product-thumb">👕</span>
+            </div>
+            <div class="product-image" style="height: 100px; font-size: 2rem; cursor: pointer; background-color: #f0f0f0;"></div>
+            <div class="product-image" style="height: 100px; font-size: 2rem; cursor: pointer; background-color: #f0f0f0;"></div>
+            <div class="product-image" style="height: 100px; font-size: 2rem; cursor: pointer; background-color: #f0f0f0;"></div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <div class="product-category" id="product-category" style="margin-bottom: 1rem;">Category</div>
+          <h1 id="product-name" style="font-size: 2rem; margin-bottom: 0.5rem;">Product Name</h1>
+          
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+            <div class="product-rating" style="margin: 0;">
+              <span id="product-rating">⭐ 4.5</span>
+            </div>
+            <span style="color: var(--light-text);">(<span id="product-reviews">128</span> reviews)</span>
+          </div>
+
+          <div class="product-price" id="product-price" style="font-size: 2rem; margin-bottom: 2rem;">$99.99</div>
+
+          <!-- Product Description -->
+          <p id="product-description" style="color: var(--light-text); margin-bottom: 2rem; line-height: 1.8;">
+            This is a premium product made with high-quality materials. Perfect for everyday wear and any occasion.
+          </p>
+
+          <!-- Size Selector -->
+          <div class="form-group">
+            <label style="font-weight: 600; margin-bottom: 1rem;">Size</label>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <button style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;" data-size="XS">XS</button>
+              <button style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;" data-size="S">S</button>
+              <button style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s; border-color: var(--accent-color);" data-size="M">M</button>
+              <button style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;" data-size="L">L</button>
+              <button style="padding: 0.75rem 1.5rem; border: 2px solid var(--border-color); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <!-- Color Selector -->
+          <div class="form-group">
+            <label style="font-weight: 600; margin-bottom: 1rem;">Color</label>
+            <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+              <div style="width: 40px; height: 40px; background-color: #000; border-radius: 50%; cursor: pointer; border: 3px solid var(--accent-color);"></div>
+              <div style="width: 40px; height: 40px; background-color: #fff; border: 3px solid #ddd; border-radius: 50%; cursor: pointer;"></div>
+              <div style="width: 40px; height: 40px; background-color: #6c5ce7; border-radius: 50%; cursor: pointer; border: 3px solid transparent;"></div>
+              <div style="width: 40px; height: 40px; background-color: #e17055; border-radius: 50%; cursor: pointer; border: 3px solid transparent;"></div>
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="form-group">
+            <label style="font-weight: 600; margin-bottom: 1rem;">Quantity</label>
+            <div class="cart-item-quantity" style="margin-bottom: 2rem; width: 150px;">
+              <button onclick="decreaseQuantity()">−</button>
+              <input type="number" id="quantity-input" value="1" readonly min="1" max="10">
+              <button onclick="increaseQuantity()">+</button>
+            </div>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button id="add-to-cart-btn" class="btn" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-bottom: 1rem;">
+            Add to Cart
+          </button>
+          <button class="btn btn-secondary" style="width: 100%; padding: 1rem;">
+            ❤️ Add to Wishlist
+          </button>
+
+          <!-- Additional Info -->
+          <div style="border-top: 2px solid var(--border-color); padding-top: 2rem; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Product Details</h3>
+            <dl style="line-height: 2;">
+              <dt style="color: var(--light-text);">Material & Care:</dt>
+              <dd style="margin-bottom: 1rem;">100% Premium Cotton. Machine wash cold with similar colors.</dd>
+              <dt style="color: var(--light-text);">Dimensions:</dt>
+              <dd style="margin-bottom: 1rem;">Standard fit. See size guide for measurements.</dd>
+              <dt style="color: var(--light-text);">Shipping:</dt>
+              <dd>Free for orders over $100. Standard delivery 3-5 business days.</dd>
+            </dl>
+          </div>
+
+          <!-- Reviews Section -->
+          <div style="border-top: 2px solid var(--border-color); padding-top: 2rem; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Customer Reviews</h3>
+            <div style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <strong>Sarah M.</strong>
+                <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p style="color: var(--light-text);">"Great quality and perfect fit! Exactly what I was looking for."</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <strong>James T.</strong>
+                <span style="color: #ffc107;">⭐⭐⭐⭐</span>
+              </div>
+              <p style="color: var(--light-text);">"Very comfortable. Arrived quickly and in perfect condition."</p>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <strong>Emily R.</strong>
+                <span style="color: #ffc107;">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p style="color: var(--light-text);">"The colors are vibrant and the material is high quality. Highly recommend!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="section" style="background-color: var(--secondary-color);">
+    <div class="container">
+      <h2 class="section-title">You Might Also Like</h2>
+      <div class="products-grid">
+        <!-- Related products will be rendered here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id')) || 1;
+
+    const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+
+    // Display product details
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-category').textContent = product.category.toUpperCase();
+    document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+    document.getElementById('product-rating').textContent = `⭐ ${product.rating}`;
+    document.getElementById('product-reviews').textContent = product.reviews;
+    document.getElementById('product-description').textContent = product.description;
+    document.getElementById('product-main-image').textContent = product.image;
+    document.getElementById('product-thumb').textContent = product.image;
+    document.getElementById('breadcrumb-product').textContent = product.name;
+
+    // Size selector
+    document.querySelectorAll('[data-size]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('[data-size]').forEach(b => {
+          b.style.borderColor = 'var(--border-color)';
+        });
+        this.style.borderColor = 'var(--accent-color)';
+      });
+    });
+
+    // Color selector
+    document.querySelectorAll('[style*="background-color"]').forEach(btn => {
+      if (btn.style.width === '40px') {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[style*="width: 40px"]').forEach(b => {
+            b.style.borderColor = 'transparent';
+          });
+          this.style.borderColor = 'var(--accent-color)';
+        });
+      }
+    });
+
+    // Quantity management
+    function increaseQuantity() {
+      const input = document.getElementById('quantity-input');
+      if (parseInt(input.value) < 10) {
+        input.value = parseInt(input.value) + 1;
+      }
+    }
+
+    function decreaseQuantity() {
+      const input = document.getElementById('quantity-input');
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    }
+
+    // Add to cart
+    document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+      const quantity = parseInt(document.getElementById('quantity-input').value);
+      cart.addItem(productId, quantity);
+      showNotification(`Added ${quantity} item(s) to cart!`);
+    });
+
+    // Render related products
+    function renderRelatedProducts() {
+      const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+      const grid = document.querySelector('.products-grid');
+      if (grid) {
+        grid.innerHTML = related.map(p => `
+          <div class="product-card">
+            <div class="product-image">
+              <div style="font-size: 5rem;">${p.image}</div>
+            </div>
+            <div class="product-info">
+              <div class="product-category">${p.category}</div>
+              <div class="product-name">${p.name}</div>
+              <div class="product-price">$${p.price.toFixed(2)}</div>
+              <div class="product-rating">⭐ ${p.rating}</div>
+              <div class="product-actions">
+                <a href="product.html?id=${p.id}" class="btn" style="width: 100%; text-align: center; display: block;">View</a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderRelatedProducts);
+  </script>
+</body>
+</html>

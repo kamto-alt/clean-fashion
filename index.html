@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Fashions - Modern Fashion & Style</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <button class="icon-btn" title="Cart">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Elevate Your Style</h1>
+    <p>Discover our curated collection of premium fashion for the modern person</p>
+    <div>
+      <a href="shop.html" class="btn">Shop Now</a>
+      <a href="#collections" class="btn btn-secondary">Explore Collection</a>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">New Arrivals</h2>
+      <div class="products-grid" id="new-arrivals-grid">
+        <!-- Products will be rendered here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="section" style="background-color: var(--secondary-color);">
+    <div class="container">
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="products-grid" id="best-sellers-grid">
+        <!-- Products will be rendered here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasonal Trends -->
+  <section class="section" id="collections">
+    <div class="container">
+      <h2 class="section-title">Seasonal Collections</h2>
+      <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="product-card" style="cursor: pointer;">
+          <div class="product-image" style="font-size: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            ☀️
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Summer Drop 2026</h3>
+            <p style="color: var(--light-text);">Light, breathable designs</p>
+            <a href="shop.html" class="btn" style="width: 100%; text-align: center;">Explore</a>
+          </div>
+        </div>
+
+        <div class="product-card" style="cursor: pointer;">
+          <div class="product-image" style="font-size: 3rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            🏙️
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Streetwear Collection</h3>
+            <p style="color: var(--light-text);">Urban & Contemporary</p>
+            <a href="shop.html" class="btn" style="width: 100%; text-align: center;">Explore</a>
+          </div>
+        </div>
+
+        <div class="product-card" style="cursor: pointer;">
+          <div class="product-image" style="font-size: 3rem; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            👑
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Luxury Line</h3>
+            <p style="color: var(--light-text);">Premium & Exclusive</p>
+            <a href="shop.html" class="btn" style="width: 100%; text-align: center;">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Info -->
+  <section class="section" style="background-color: var(--primary-color); color: white;" id="about">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">About Clean Fashions</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+        <div>
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+            We believe fashion is a form of self-expression. Our mission is to provide high-quality, stylish clothing that makes you feel confident and comfortable.
+          </p>
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+            Founded in 2020, Clean Fashions has grown to become a trusted name in contemporary fashion, with thousands of satisfied customers worldwide.
+          </p>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 0.75rem;">✓ Premium quality materials</li>
+            <li style="margin-bottom: 0.75rem;">✓ Sustainable practices</li>
+            <li style="margin-bottom: 0.75rem;">✓ Fast and free shipping over $100</li>
+            <li>✓ 30-day money-back guarantee</li>
+          </ul>
+        </div>
+        <div style="font-size: 5rem; text-align: center;">
+          👗👕👔👠
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="section" style="background-color: var(--secondary-color);">
+    <div class="container">
+      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title">Stay Updated</h2>
+        <p style="margin-bottom: 2rem; color: var(--light-text);">Subscribe to our newsletter for exclusive deals and new collection updates.</p>
+        <form style="display: flex; gap: 0.5rem;">
+          <input type="email" placeholder="Enter your email" required style="flex: 1; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Render featured products on homepage
+    function renderFeaturedProducts() {
+      const newArrivalsGrid = document.querySelector('#new-arrivals-grid');
+      const bestSellersGrid = document.querySelector('#best-sellers-grid');
+
+      // New Arrivals (products with isNew = true)
+      const newArrivals = PRODUCTS.filter(p => p.isNew).slice(0, 4);
+      newArrivalsGrid.innerHTML = newArrivals.map(product => `
+        <div class="product-card">
+          <div class="product-image">
+            <div style="font-size: 5rem;">${product.image}</div>
+            <div class="product-badge">New</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">${product.category}</div>
+            <div class="product-name">${product.name}</div>
+            <div class="product-price">$${product.price.toFixed(2)}</div>
+            <div class="product-rating">⭐ ${product.rating} (${product.reviews})</div>
+            <div class="product-actions">
+              <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Best Sellers (products with most reviews)
+      const bestSellers = [...PRODUCTS].sort((a, b) => b.reviews - a.reviews).slice(0, 4);
+      bestSellersGrid.innerHTML = bestSellers.map(product => `
+        <div class="product-card">
+          <div class="product-image">
+            <div style="font-size: 5rem;">${product.image}</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">${product.category}</div>
+            <div class="product-name">${product.name}</div>
+            <div class="product-price">$${product.price.toFixed(2)}</div>
+            <div class="product-rating">⭐ ${product.rating} (${product.reviews})</div>
+            <div class="product-actions">
+              <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Add event listeners to all add-to-cart buttons
+      document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const productId = parseInt(e.target.dataset.id);
+          cart.addItem(productId, 1);
+          showNotification('Added to cart!');
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderFeaturedProducts);
+  </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <a href="cart.html" class="icon-btn" title="Cart" style="text-decoration: none;">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background-color: var(--primary-color); color: white; padding: 3rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Shop All Products</h1>
+      <p>Discover our complete collection of premium fashion items</p>
+    </div>
+  </section>
+
+  <!-- Shop Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Filters and Sorting -->
+      <div class="shop-controls">
+        <div class="filters">
+          <div class="filter-group">
+            <label for="category">Category</label>
+            <select id="category" class="category-filter">
+              <option value="">All Categories</option>
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sort">Sort By</label>
+            <select id="sort" class="sort-filter">
+              <option value="">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <input type="text" placeholder="Search products..." class="search-input" style="padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.9rem;">
+          </div>
+        </div>
+
+        <div style="font-size: 0.9rem; color: var(--light-text);">
+          <span id="product-count">0</span> products found
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <!-- Products will be rendered here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateProductCount();
+
+      // Add filter event listeners
+      document.querySelector('.category-filter').addEventListener('change', () => {
+        filterProducts();
+        updateProductCount();
+      });
+
+      document.querySelector('.sort-filter').addEventListener('change', () => {
+        filterProducts();
+      });
+
+      document.querySelector('.search-input').addEventListener('input', () => {
+        filterProducts();
+        updateProductCount();
+      });
+    });
+
+    function updateProductCount() {
+      const count = document.querySelectorAll('.product-card').length;
+      document.querySelector('#product-count').textContent = count;
+    }
+  </script>
+</body>
+</html>

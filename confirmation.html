@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <a href="cart.html" class="icon-btn" title="Cart" style="text-decoration: none;">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Confirmation Content -->
+  <section class="section" style="text-align: center;">
+    <div class="container" style="max-width: 600px;">
+      <div style="background-color: var(--secondary-color); padding: 3rem; border-radius: 8px ; margin-bottom: 2rem;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">✓</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--success-color);">Order Confirmed!</h1>
+        <p style="color: var(--light-text); font-size: 1.1rem; margin-bottom: 1rem;">
+          Thank you for your purchase. Your order has been received and will be processed shortly.
+        </p>
+      </div>
+
+      <!-- Order Details Card -->
+      <div style="background: white; border: 2px solid var(--border-color); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; text-align: left;">
+        <h2 style="margin-bottom: 1.5rem; text-align: center;">Order Details</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; text-align: center;">
+          <div>
+            <p style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Order ID</p>
+            <p style="font-weight: bold; font-size: 1.1rem;" id="order-id">ORD-1234567</p>
+          </div>
+          <div>
+            <p style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Order Date</p>
+            <p style="font-weight: bold; font-size: 1.1rem;" id="order-date">Jan 12, 2026</p>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-bottom: 1.5rem;">
+          <h3 style="margin-bottom: 1rem;">Order Status</h3>
+          <div class="order-status completed" style="display: inline-block;">✓ Confirmed</div>
+          <p style="color: var(--light-text); font-size: 0.9rem; margin-top: 0.5rem;">
+            Your order is being prepared. You'll receive a shipping confirmation email with tracking info.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+          <h3 style="margin-bottom: 1rem;">Order Total</h3>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>Subtotal:</span>
+            <span id="conf-subtotal">$0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+            <span>Shipping:</span>
+            <span id="conf-shipping">$0.00</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; color: var(--primary-color);">
+            <span>Total:</span>
+            <span id="conf-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's Next Section -->
+      <div style="background-color: var(--secondary-color); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+        <h2 style="margin-bottom: 1.5rem;">What Happens Next?</h2>
+        <ol style="text-align: left; max-width: 400px; margin: 0 auto;">
+          <li style="margin-bottom: 1rem;">
+            <strong>Confirmation Email (Instant)</strong>
+            <p style="color: var(--light-text); font-size: 0.9rem;">Check your inbox for order confirmation details</p>
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Processing (1-2 hours)</strong>
+            <p style="color: var(--light-text); font-size: 0.9rem;">We carefully prepare and pack your items</p>
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Shipment (Next Business Day)</strong>
+            <p style="color: var(--light-text); font-size: 0.9rem;">Receive shipping confirmation with tracking number</p>
+          </li>
+          <li>
+            <strong>Delivery (3-5 Days)</strong>
+            <p style="color: var(--light-text); font-size: 0.9rem;">Track your package in real-time</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+        <a href="account.html" class="btn" style="padding: 1rem; text-align: center;">View Order Details</a>
+        <a href="shop.html" class="btn btn-dark" style="padding: 1rem; text-align: center;">Continue Shopping</a>
+      </div>
+
+      <!-- Contact Section -->
+      <div style="background-color: #f0f0f0; padding: 1.5rem; border-radius: 8px; text-align: center;">
+        <h3 style="margin-bottom: 0.5rem;">Need Help?</h3>
+        <p style="color: var(--light-text); margin-bottom: 1rem;">
+          If you have any questions about your order, contact our support team
+        </p>
+        <a href="#" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">📧 support@cleanfashions.com</a>
+        <br>
+        <a href="#" style="color: var(--accent-color); text-decoration: none; font-weight: 600; margin-top: 0.5rem; display: inline-block;">💬 Live Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="section" style="background-color: var(--secondary-color);">
+    <div class="container" style="max-width: 900px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center;">
+        <div>
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚚</div>
+          <h3>Free Returns</h3>
+          <p style="color: var(--light-text);">30-day money-back guarantee</p>
+        </div>
+        <div>
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+          <h3>Secure Payment</h3>
+          <p style="color: var(--light-text);">SSL encrypted checkout</p>
+        </div>
+        <div>
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📞</div>
+          <h3>24/7 Support</h3>
+          <p style="color: var(--light-text);">Dedicated customer service</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get order ID from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get('orderId') || 'ORD-1234567';
+      
+      // Get last order from localStorage
+      const lastOrder = JSON.parse(localStorage.getItem('lastOrder')) || {};
+
+      // Display order info
+      document.getElementById('order-id').textContent = orderId;
+      document.getElementById('order-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+      // Display totals
+      const subtotal = lastOrder.total ? lastOrder.total - 10 : 100;
+      const shipping = 10;
+      const total = lastOrder.total || 110;
+
+      document.getElementById('conf-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('conf-shipping').textContent = `$${shipping.toFixed(2)}`;
+      document.getElementById('conf-total').textContent = `$${total.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>

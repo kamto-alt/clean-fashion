@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CLEAN</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" title="Account">👤</button>
+        <a href="cart.html" class="icon-btn" title="Cart" style="text-decoration: none;">
+          🛒
+          <span class="cart-count" style="display: none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section style="background-color: var(--primary-color); color: white; padding: 3rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">My Account</h1>
+      <p>👤 Welcome back, Sarah!</p>
+    </div>
+  </section>
+
+  <!-- Account Content -->
+  <section class="section">
+    <div class="container">
+      <div class="account-container">
+        <!-- Sidebar Menu -->
+        <aside class="account-sidebar">
+          <ul class="account-menu">
+            <li><a href="#" class="active" data-target="account-profile">Profile</a></li>
+            <li><a href="#" data-target="account-orders">Order History</a></li>
+            <li><a href="#" data-target="account-addresses">Saved Addresses</a></li>
+            <li><a href="#" data-target="account-wishlist">Wishlist</a></li>
+            <li><a href="#" data-target="account-settings">Settings</a></li>
+            <li><a href="index.html">Logout</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="account-content">
+          <!-- Profile Section -->
+          <div class="account-section account-profile">
+            <h2 style="margin-bottom: 1.5rem;">Profile Information</h2>
+            
+            <form style="max-width: 500px;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" value="Sarah" required>
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" value="Martinez" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" value="sarah.martinez@email.com" required>
+              </div>
+
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" value="+1 (555) 123-4567" required>
+              </div>
+
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" value="1990-05-15">
+              </div>
+
+              <button type="submit" class="btn">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- Order History Section -->
+          <div class="account-section account-orders hidden">
+            <h2 style="margin-bottom: 1.5rem;">Order History</h2>
+            
+            <div class="order-item">
+              <div class="order-header">
+                <div>
+                  <strong>Order #ORD-7834921</strong>
+                  <p style="color: var(--light-text); font-size: 0.9rem;">Placed on Jan 10, 2026</p>
+                </div>
+                <div>
+                  <span class="order-status completed">✓ Delivered</span>
+                </div>
+                <div style="text-align: right;">
+                  <strong>$247.50</strong>
+                  <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">View Details</a>
+                </div>
+              </div>
+              <div style="font-size: 0.9rem; color: var(--light-text);">
+                3 items • Delivered on Jan 13, 2026
+              </div>
+            </div>
+
+            <div class="order-item">
+              <div class="order-header">
+                <div>
+                  <strong>Order #ORD-7834920</strong>
+                  <p style="color: var(--light-text); font-size: 0.9rem;">Placed on Jan 5, 2026</p>
+                </div>
+                <div>
+                  <span class="order-status shipping">📦 Shipping</span>
+                </div>
+                <div style="text-align: right;">
+                  <strong>$189.99</strong>
+                  <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">Track Order</a>
+                </div>
+              </div>
+              <div style="font-size: 0.9rem; color: var(--light-text);">
+                2 items • Expected delivery Jan 18, 2026
+              </div>
+            </div>
+
+            <div class="order-item">
+              <div class="order-header">
+                <div>
+                  <strong>Order #ORD-7834919</strong>
+                  <p style="color: var(--light-text); font-size: 0.9rem;">Placed on Dec 28, 2025</p>
+                </div>
+                <div>
+                  <span class="order-status completed">✓ Delivered</span>
+                </div>
+                <div style="text-align: right;">
+                  <strong>$325.00</strong>
+                  <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">View Details</a>
+                </div>
+              </div>
+              <div style="font-size: 0.9rem; color: var(--light-text);">
+                5 items • Delivered on Jan 2, 2026
+              </div>
+            </div>
+          </div>
+
+          <!-- Addresses Section -->
+          <div class="account-section account-addresses hidden">
+            <h2 style="margin-bottom: 1.5rem;">Saved Addresses</h2>
+            
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                <div>
+                  <strong>🏠 Home</strong>
+                  <p style="margin: 0.5rem 0; color: var(--light-text);">
+                    123 Main Street<br>
+                    New York, NY 10001<br>
+                    United States<br>
+                    +1 (555) 123-4567
+                  </p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Edit</button>
+                  <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Delete</button>
+                </div>
+              </div>
+              <label style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                <input type="checkbox" checked>
+                <span style="font-size: 0.9rem;">Use as default shipping address</span>
+              </label>
+            </div>
+
+            <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                <div>
+                  <strong>🏢 Work</strong>
+                  <p style="margin: 0.5rem 0; color: var(--light-text);">
+                    456 Corporate Plaza<br>
+                    New York, NY 10002<br>
+                    United States<br>
+                    +1 (555) 123-4568
+                  </p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Edit</button>
+                  <button class="btn btn-dark" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn" style="padding: 1rem 2rem;">+ Add New Address</button>
+          </div>
+
+          <!-- Wishlist Section -->
+          <div class="account-section account-wishlist hidden">
+            <h2 style="margin-bottom: 1.5rem;">My Wishlist</h2>
+            
+            <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+              <div class="product-card">
+                <div class="product-image" style="font-size: 5rem;">👕</div>
+                <div class="product-info">
+                  <div class="product-category">Men</div>
+                  <div class="product-name">Premium T-Shirt</div>
+                  <div class="product-price">$49.99</div>
+                  <div class="product-actions">
+                    <button class="btn" style="flex: 1; padding: 0.5rem;">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-image" style="font-size: 5rem;">👗</div>
+                <div class="product-info">
+                  <div class="product-category">Women</div>
+                  <div class="product-name">Summer Dress</div>
+                  <div class="product-price">$79.99</div>
+                  <div class="product-actions">
+                    <button class="btn" style="flex: 1; padding: 0.5rem;">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-image" style="font-size: 5rem;">🕶️</div>
+                <div class="product-info">
+                  <div class="product-category">Accessories</div>
+                  <div class="product-name">Designer Sunglasses</div>
+                  <div class="product-price">$150.00</div>
+                  <div class="product-actions">
+                    <button class="btn" style="flex: 1; padding: 0.5rem;">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Settings Section -->
+          <div class="account-section account-settings hidden">
+            <h2 style="margin-bottom: 1.5rem;">Account Settings</h2>
+            
+            <div style="max-width: 500px;">
+              <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">Email Preferences</h3>
+                <label style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                  <input type="checkbox" checked>
+                  <span>Promotional emails & offers</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                  <input type="checkbox" checked>
+                  <span>Order updates & shipping notifications</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.75rem;">
+                  <input type="checkbox">
+                  <span>Product recommendations</span>
+                </label>
+              </div>
+
+              <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">Security</h3>
+                <div style="margin-bottom: 1rem;">
+                  <button class="btn btn-dark" style="padding: 0.75rem 1.5rem;">Change Password</button>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <button class="btn btn-dark" style="padding: 0.75rem 1.5rem;">Two-Factor Authentication</button>
+                </div>
+              </div>
+
+              <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 4px;">
+                <h3 style="margin-bottom: 1rem;">Account Deletion</h3>
+                <p style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 1rem;">
+                  Permanently delete your account and all associated data.
+                </p>
+                <button class="btn" style="border-color: var(--danger-color); color: var(--danger-color); background-color: transparent; padding: 0.75rem 1.5rem;">
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Policies</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h3 style="margin-top: 1.5rem;">Follow Us</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clean Fashions. All rights reserved. | Built with ❤️ for fashion lovers</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuLinks = document.querySelectorAll('.account-menu a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          menuLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          const target = link.dataset.target;
+          document.querySelectorAll('[class*="account-"]').forEach(section => {
+            if (section.classList.contains('account-sidebar') || section.classList.contains('account-content') || section.classList.contains('account-menu')) return;
+            section.classList.add('hidden');
+          });
+          const targetSection = document.querySelector('.' + target);
+          if (targetSection) targetSection.classList.remove('hidden');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

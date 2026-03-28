@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Clean Fashions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Admin Header -->
+  <header style="background-color: var(--primary-color); color: white;">
+    <div class="header-container">
+      <a href="#" class="logo" style="color: white;">CLEAN ADMIN</a>
+      <div style="display: flex; align-items: center; gap: 2rem;">
+        <nav>
+          <ul class="nav-menu" style="gap: 1.5rem;">
+            <li><a href="#" style="color: white;">Dashboard</a></li>
+            <li><a href="#" style="color: white;">Products</a></li>
+            <li><a href="#" style="color: white;">Orders</a></li>
+            <li><a href="#" style="color: white;">Customers</a></li>
+            <li><a href="#" style="color: white;">Analytics</a></li>
+          </ul>
+        </nav>
+        <div style="color: white; cursor: pointer;">👤 Admin</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Dashboard Overview -->
+      <h1 style="margin-bottom: 2rem;">Dashboard</h1>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+          <div style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Total Revenue</div>
+          <div style="font-size: 2rem; font-weight: bold;">$45,250</div>
+          <div style="color: var(--success-color); font-size: 0.85rem; margin-top: 0.5rem;">↑ 12% from last month</div>
+        </div>
+
+        <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2196f3;">
+          <div style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Total Orders</div>
+          <div style="font-size: 2rem; font-weight: bold;">1,234</div>
+          <div style="color: var(--success-color); font-size: 0.85rem; margin-top: 0.5rem;">↑ 8% from last month</div>
+        </div>
+
+        <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #4caf50;">
+          <div style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Total Customers</div>
+          <div style="font-size: 2rem; font-weight: bold;">856</div>
+          <div style="color: var(--success-color); font-size: 0.85rem; margin-top: 0.5rem;">↑ 15% from last month</div>
+        </div>
+
+        <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ff9800;">
+          <div style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">Avg Order Value</div>
+          <div style="font-size: 2rem; font-weight: bold;">$36.69</div>
+          <div style="color: var(--danger-color); font-size: 0.85rem; margin-top: 0.5rem;">↓ 2% from last month</div>
+        </div>
+      </div>
+
+      <!-- Admin Tabs -->
+      <div style="border-bottom: 2px solid var(--border-color); margin-bottom: 2rem;">
+        <button class="tab-btn active" data-tab="products" style="padding: 1rem 2rem; border: none; background: none; cursor: pointer; font-weight: 600; border-bottom: 3px solid var(--accent-color);">📦 Product Management</button>
+        <button class="tab-btn" data-tab="orders" style="padding: 1rem 2rem; border: none; background: none; cursor: pointer; font-weight: 600; border-bottom: 3px solid transparent;">📋 Orders</button>
+        <button class="tab-btn" data-tab="customers" style="padding: 1rem 2rem; border: none; background: none; cursor: pointer; font-weight: 600; border-bottom: 3px solid transparent;">👥 Customers</button>
+        <button class="tab-btn" data-tab="inventory" style="padding: 1rem 2rem; border: none; background: none; cursor: pointer; font-weight: 600; border-bottom: 3px solid transparent;">📊 Inventory</button>
+      </div>
+
+      <!-- Products Tab -->
+      <div class="admin-tab admin-tab-products">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <h2>Products</h2>
+          <button class="btn">+ Add New Product</button>
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: var(--secondary-color);">
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Product Name</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Category</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Price</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Stock</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Status</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Classic White T-Shirt</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Men</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$45.00</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">156</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);"><span style="background-color: #e8f5e9; color: #388e3c; padding: 0.4rem 0.8rem; border-radius: 20px;">Active</span></td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; margin-right: 0.5rem;">Edit</button>
+                <button class="btn btn-dark" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Black Skinny Jeans</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Men</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$89.99</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">89</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);"><span style="background-color: #e8f5e9; color: #388e3c; padding: 0.4rem 0.8rem; border-radius: 20px;">Active</span></td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; margin-right: 0.5rem;">Edit</button>
+                <button class="btn btn-dark" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Summer Floral Dress</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Women</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$75.00</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">45</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);"><span style="background-color: #e8f5e9; color: #388e3c; padding: 0.4rem 0.8rem; border-radius: 20px;">Active</span></td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; margin-right: 0.5rem;">Edit</button>
+                <button class="btn btn-dark" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Orders Tab -->
+      <div class="admin-tab admin-tab-orders hidden">
+        <h2 style="margin-bottom: 2rem;">Recent Orders</h2>
+
+        <div class="order-item">
+          <div class="order-header">
+            <div>
+              <strong>Order #ORD-1001</strong>
+              <p style="color: var(--light-text); font-size: 0.9rem;">Customer: John Doe</p>
+            </div>
+            <div>
+              <span class="order-status completed">✓ Delivered</span>
+            </div>
+            <div style="text-align: right;">
+              <strong>$247.50</strong>
+              <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-item">
+          <div class="order-header">
+            <div>
+              <strong>Order #ORD-1002</strong>
+              <p style="color: var(--light-text); font-size: 0.9rem;">Customer: Jane Smith</p>
+            </div>
+            <div>
+              <span class="order-status shipping">📦 Shipping</span>
+            </div>
+            <div style="text-align: right;">
+              <strong>$189.99</strong>
+              <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-item">
+          <div class="order-header">
+            <div>
+              <strong>Order #ORD-1003</strong>
+              <p style="color: var(--light-text); font-size: 0.9rem;">Customer: Bob Johnson</p>
+            </div>
+            <div>
+              <span class="order-status">⏳ Pending</span>
+            </div>
+            <div style="text-align: right;">
+              <strong>$325.00</strong>
+              <a href="#" style="display: block; color: var(--accent-color); text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customers Tab -->
+      <div class="admin-tab admin-tab-customers hidden">
+        <h2 style="margin-bottom: 2rem;">Customers</h2>
+
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color: var(--secondary-color);">
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Customer Name</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Email</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Total Orders</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Total Spent</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Member Since</th>
+              <th style="padding: 1rem; text-align: left; border: 1px solid var(--border-color);">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">John Doe</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">john.doe@email.com</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">5</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$1,245.00</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Jan 2024</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Jane Smith</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">jane.smith@email.com</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">3</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$587.50</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Mar 2024</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Bob Johnson</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">bob.johnson@email.com</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">8</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">$2,145.75</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">Oct 2023</td>
+              <td style="padding: 1rem; border: 1px solid var(--border-color);">
+                <button class="btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Inventory Tab -->
+      <div class="admin-tab admin-tab-inventory hidden">
+        <h2 style="margin-bottom: 2rem;">Inventory Status</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin-bottom: 0.5rem;">Classic White T-Shirt</h3>
+                <p style="color: var(--light-text); font-size: 0.9rem;">SKU: T-SHIRT-001</p>
+              </div>
+              <span style="background-color: #e8f5e9; color: #388e3c; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">In Stock</span>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--light-text);">Available:</span>
+                <strong>156 units</strong>
+              </div>
+              <div style="background-color: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background-color: var(--accent-color); height: 100%; width: 85%;"></div>
+              </div>
+            </div>
+            <p style="color: var(--light-text); font-size: 0.85rem;">Reorder level: 50 units</p>
+          </div>
+
+          <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin-bottom: 0.5rem;">Black Skinny Jeans</h3>
+                <p style="color: var(--light-text); font-size: 0.9rem;">SKU: JEANS-001</p>
+              </div>
+              <span style="background-color: #fff3e0; color: #f57c00; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Low Stock</span>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--light-text);">Available:</span>
+                <strong>23 units</strong>
+              </div>
+              <div style="background-color: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background-color: #ff9800; height: 100%; width: 25%;"></div>
+              </div>
+            </div>
+            <p style="color: var(--light-text); font-size: 0.85rem;">Reorder level: 50 units</p>
+          </div>
+
+          <div style="background-color: var(--secondary-color); padding: 1.5rem; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+              <div>
+                <h3 style="margin-bottom: 0.5rem;">Summer Floral Dress</h3>
+                <p style="color: var(--light-text); font-size: 0.9rem;">SKU: DRESS-001</p>
+              </div>
+              <span style="background-color: #e8f5e9; color: #388e3c; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">In Stock</span>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="color: var(--light-text);">Available:</span>
+                <strong>78 units</strong>
+              </div>
+              <div style="background-color: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;">
+                <div style="background-color: var(--accent-color); height: 100%; width: 65%;"></div>
+              </div>
+            </div>
+            <p style="color: var(--light-text); font-size: 0.85rem;">Reorder level: 50 units</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.style.borderBottom = '3px solid transparent';
+        });
+        btn.style.borderBottom = '3px solid var(--accent-color)';
+
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+          tab.classList.add('hidden');
+        });
+        document.querySelector('.admin-tab-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

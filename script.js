@@ -9,7 +9,7 @@ const PRODUCTS = [
     name: 'Classic White T-Shirt',
     category: 'Men',
     price: 45.00,
-    image: '👕',
+    image: 'https://images.unsplash.com/photo-1520975929916-4c358b512b73?auto=format&fit=crop&w=800&q=80',
     rating: 4.5,
     reviews: 128,
     isNew: true,
@@ -20,7 +20,7 @@ const PRODUCTS = [
     name: 'Black Skinny Jeans',
     category: 'Men',
     price: 89.99,
-    image: '👖',
+    image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80',
     rating: 4.8,
     reviews: 256,
     isNew: false,
@@ -31,7 +31,7 @@ const PRODUCTS = [
     name: 'Summer Floral Dress',
     category: 'Women',
     price: 75.00,
-    image: '👗',
+    image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80',
     rating: 4.7,
     reviews: 342,
     isNew: true,
@@ -42,7 +42,7 @@ const PRODUCTS = [
     name: 'Leather Brown Belt',
     category: 'Accessories',
     price: 35.00,
-    image: '⌚',
+    image: 'https://images.unsplash.com/photo-1530856612258-6b6f49dd9b9f?auto=format&fit=crop&w=800&q=80',
     rating: 4.6,
     reviews: 89,
     isNew: false,
@@ -53,7 +53,7 @@ const PRODUCTS = [
     name: 'Women\'s Blazer',
     category: 'Women',
     price: 129.99,
-    image: '🧥',
+    image: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80',
     rating: 4.9,
     reviews: 167,
     isNew: true,
@@ -64,7 +64,7 @@ const PRODUCTS = [
     name: 'Athletic Shorts',
     category: 'Men',
     price: 55.00,
-    image: '🩳',
+    image: 'https://images.unsplash.com/photo-1520975911847-bc280384b31d?auto=format&fit=crop&w=800&q=80',
     rating: 4.4,
     reviews: 95,
     isNew: false,
@@ -75,7 +75,7 @@ const PRODUCTS = [
     name: 'Designer Sunglasses',
     category: 'Accessories',
     price: 150.00,
-    image: '🕶️',
+    image: 'https://images.unsplash.com/photo-1520975911890-4a74f753e4f0?auto=format&fit=crop&w=800&q=80',
     rating: 4.8,
     reviews: 203,
     isNew: true,
@@ -86,7 +86,7 @@ const PRODUCTS = [
     name: 'White Sneakers',
     category: 'Accessories',
     price: 99.99,
-    image: '👟',
+    image: 'https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80',
     rating: 4.7,
     reviews: 318,
     isNew: false,
@@ -242,7 +242,9 @@ function renderProducts(products = PRODUCTS) {
   grid.innerHTML = products.map(product => `
     <div class="product-card" data-id="${product.id}">
       <div class="product-image">
-        <div style="font-size: 5rem;">${product.image}</div>
+        ${product.image.startsWith('http') ? `
+          <img src="${product.image}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;" />
+        ` : `<div style="font-size: 5rem;">${product.image}</div>`}
         ${product.isNew ? '<div class="product-badge">New</div>' : ''}
       </div>
       <div class="product-info">

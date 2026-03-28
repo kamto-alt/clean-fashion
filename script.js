@@ -230,9 +230,89 @@ function initGoogleAuth() {
 // Initialize cart count on page load
 document.addEventListener('DOMContentLoaded', () => {
   cart.updateCartCount();
+  renderHomepageSections();
   initializePageFunctions();
   initGoogleAuth();
 });
+
+// Render homepage sections (New Arrivals and Best Sellers)
+function renderHomepageSections() {
+  // New Arrivals - products marked as isNew
+  const newArrivalsGrid = document.getElementById('new-arrivals-grid');
+  if (newArrivalsGrid) {
+    const newArrivals = PRODUCTS.filter(p => p.isNew);
+    newArrivalsGrid.innerHTML = newArrivals.map(product => `
+      <div class="product-card" data-id="${product.id}">
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.name}" loading="eager" style="width:100%; height:100%; object-fit: cover; display:block;" />
+          ${product.isNew ? '<div class="product-badge">New</div>' : ''}
+        </div>
+        <div class="product-info">
+          <div class="product-category">${product.category}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-price">$${product.price.toFixed(2)}</div>
+          <div class="product-rating">⭐ ${product.rating} (${product.reviews})</div>
+          <div class="product-actions">
+            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+            <button class="wishlist-btn" data-id="${product.id}">❤️</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Add event listeners
+    newArrivalsGrid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const productId = parseInt(e.target.dataset.id);
+        cart.addItem(productId, 1);
+        showNotification('Added to cart!');
+      });
+    });
+    newArrivalsGrid.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.target.style.opacity = e.target.style.opacity !== '1' ? '1' : '0.3';
+      });
+    });
+  }
+
+  // Best Sellers - products with highest reviews
+  const bestSellersGrid = document.getElementById('best-sellers-grid');
+  if (bestSellersGrid) {
+    const bestSellers = [...PRODUCTS].sort((a, b) => b.reviews - a.reviews).slice(0, 4);
+    bestSellersGrid.innerHTML = bestSellers.map(product => `
+      <div class="product-card" data-id="${product.id}">
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.name}" loading="eager" style="width:100%; height:100%; object-fit: cover; display:block;" />
+          ${product.isNew ? '<div class="product-badge">New</div>' : ''}
+        </div>
+        <div class="product-info">
+          <div class="product-category">${product.category}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-price">$${product.price.toFixed(2)}</div>
+          <div class="product-rating">⭐ ${product.rating} (${product.reviews})</div>
+          <div class="product-actions">
+            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+            <button class="wishlist-btn" data-id="${product.id}">❤️</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Add event listeners
+    bestSellersGrid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const productId = parseInt(e.target.dataset.id);
+        cart.addItem(productId, 1);
+        showNotification('Added to cart!');
+      });
+    });
+    bestSellersGrid.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.target.style.opacity = e.target.style.opacity !== '1' ? '1' : '0.3';
+      });
+    });
+  }
+}
 
 // Render products grid
 function renderProducts(products = PRODUCTS) {

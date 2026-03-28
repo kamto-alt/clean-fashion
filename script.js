@@ -597,6 +597,88 @@ style.textContent = `
   @keyframes slideIn {
     from {
       transform: translateX(400px);
+// Backend API Integration
+const API_BASE_URL = 'http://localhost:5000/api';
+
+// Submit order to backend (triggers email confirmation)
+async function submitOrderToBackend(customerEmail, customerName, shippingAddress) {
+  try {
+    const orderData = {
+      customer_email: customerEmail,
+      customer_name: customerName,
+      items: cart.items,
+      total: cart.getTotal(),
+      shipping_address: shippingAddress
+    };
+    
+    const response = await fetch(`${API_BASE_URL}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showNotification(`✅ Order ${result.order_id} created! Confirmation email sent.`, 4000);
+      cart.clear();
+      return result.order_id;
+    } else {
+      showNotification(`⚠️ Order created but email failed: ${result.error}`, 4000);
+      return null;
+    }
+  } catch (error) {
+    console.error('Backend error:', error);
+    showNotification('⚠️ Backend not available, but order will be processed locally', 3000);
+    return null;
+  }
+}
+
+// Submit contact form to backend
+async function submitContactForm(name, email, subject, message) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message })
+    });
+    
+    const result = await response.json();
+    return result.success;
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return false;
+  }
+}
+
+// Newsletter signup with backend
+async function submitNewsletterSignup(email) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/newsletter`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    
+    const result = await response.json();
+    return result.success;
+  } catch (error) {
+    console.error('Newsletter error:', error);
+    return false;
+  }
+}
+
+// Fetch products from backend
+async function fetchProductsFromBackend() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/products`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return PRODUCTS; // Fall back to local products
+  }
+}
+
       opacity: 0;
     }
     to {

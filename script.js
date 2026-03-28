@@ -172,10 +172,66 @@ class Cart {
 
 const cart = new Cart();
 
+// Google Authentication
+function parseJwt(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+      .join('')
+  );
+  return JSON.parse(jsonPayload);
+}
+
+function handleCredentialResponse(response) {
+  const user = parseJwt(response.credential);
+  const userDisplay = document.getElementById('logged-in-user');
+  if (userDisplay) {
+    userDisplay.textContent = `Signed in: ${user.name || user.email}`;
+  }
+  document.getElementById('g_id_button').style.display = 'none';
+  document.getElementById('google-signout').style.display = 'inline-block';
+}
+
+function googleSignOut() {
+  document.getElementById('g_id_button').style.display = 'inline-block';
+  document.getElementById('google-signout').style.display = 'none';
+  document.getElementById('logged-in-user').textContent = '';
+  window.google.accounts.id.disableAutoSelect();
+}
+
+function initGoogleAuth() {
+  if (!window.google || !window.google.accounts || !window.google.accounts.id) {
+    return;
+  }
+
+  window.google.accounts.id.initialize({
+    client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+    callback: handleCredentialResponse,
+  });
+
+  window.google.accounts.id.renderButton(document.getElementById('g_id_button'), {
+    theme: 'outline',
+    size: 'small',
+    type: 'standard',
+    width: 180,
+  });
+
+  window.google.accounts.id.prompt();
+
+  const signoutBtn = document.getElementById('google-signout');
+  if (signoutBtn) {
+    signoutBtn.addEventListener('click', googleSignOut);
+  }
+}
+
 // Initialize cart count on page load
 document.addEventListener('DOMContentLoaded', () => {
   cart.updateCartCount();
   initializePageFunctions();
+  initGoogleAuth();
 });
 
 // Render products grid
